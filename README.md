@@ -4,6 +4,20 @@ Turn one vertical talking video into an animated explainer reel. A product card 
 
 **Install:** copy this folder to `~/.claude/skills/aashish-cooks`, restart Claude, drop in your video and type `/aashish-cooks auto`. The first run sets itself up (2 to 4 minutes).
 
+## What you get
+
+Everything below was rendered by the skill on one real clip. Ask for any of it by name.
+
+### The cooks style: moves, cards, figures and captions
+The card track is the heart of the look. Moves bring a card in and out (`rise-card`, `boom-card`, `card-swap`), and each card type acts out what you say: `at 4.6s card-swap with repo-card "my-skill", free`.
+
+![Cooks moves, the 11 card types, hairline figures and captions](assets/cooks.jpg)
+
+### The 45 screen effects
+They sit behind, around or on top of you, like `at 9s spotlight "Cooks"`.
+
+![All 45 screen effects](assets/effects.jpg)
+
 ## Write a prompt that gives the best result
 
 ### 1. Start with auto, then refine
