@@ -1,0 +1,124 @@
+{
+ "title": "Aashish Cooks",
+ "icons": "sparkles",
+ "captions": {
+  "words": "new_one.words.json",
+  "emphasis": "copy|flaws|improve|DeepFilterNet|Hairline|skill|Cooks|Claude|DM"
+ },
+ "intro": "Hook",
+ "sfx": {
+  "auto": true,
+  "mute": [
+   "money"
+  ]
+ },
+ "effects": [
+  {
+   "fx": "hook-title",
+   "start": 0,
+   "end": 4.2,
+   "text": "Copied The Style.|Then Fixed The Flaws."
+  },
+  {
+   "fx": "sfx",
+   "name": "surprise",
+   "at": 1.7
+  },
+  {
+   "fx": "swipe",
+   "start": 2.2,
+   "end": 4.2,
+   "grade": "film"
+  },
+  {
+   "fx": "rise-card",
+   "at": 4.33,
+   "show": "repo-card",
+   "name": "DeepFilterNet",
+   "desc": "Background noise out. Clean voice in.",
+   "chips": "Audio clean-up|Open source|MIT",
+   "price": "0 dB",
+   "price_title": "Noise",
+   "price_label": "after clean-up",
+   "price_at": 6.6,
+   "status": "clean audio",
+   "chapter": "Audio"
+  },
+  {
+   "fx": "card-swap",
+   "at": 7.82,
+   "show": "figure",
+   "figure": "exploded",
+   "title": "Hairline",
+   "text": "Line illustrations that move",
+   "label": "frame by frame",
+   "tone": "terra",
+   "status": "illustrations",
+   "chapter": "Illustrate",
+   "moves": [
+    [
+     8.2,
+     0.5,
+     0.3
+    ],
+    [
+     8.85,
+     0.5,
+     0.55
+    ],
+    [
+     9.6,
+     0.5,
+     0.75
+    ]
+   ]
+  },
+  {
+   "fx": "rise-out",
+   "at": 10.1
+  },
+  {
+   "fx": "slow-push",
+   "start": 10.25,
+   "end": 12.75,
+   "zoom": 1.3,
+   "blur": 8
+  },
+  {
+   "fx": "sfx",
+   "name": "ayeee",
+   "at": 11.5
+  },
+  {
+   "fx": "sfx",
+   "name": "riser",
+   "at": 13.23
+  },
+  {
+   "fx": "spotlight",
+   "start": 13.15,
+   "end": 15.9,
+   "text": "Aashish Cooks",
+   "size": 104,
+   "push": 1
+  },
+  {
+   "fx": "reject-stamp",
+   "start": 16.05,
+   "end": 17.05,
+   "text": "Just try it",
+   "angle": -10
+  },
+  {
+   "fx": "comment-box",
+   "start": 17.05,
+   "end": 19.75,
+   "text": "Claude",
+   "handle": "@you"
+  }
+ ],
+ "voice": {
+  "clean": true,
+  "strength": "medium"
+ }
+}

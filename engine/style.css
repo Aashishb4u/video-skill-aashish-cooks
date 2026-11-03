@@ -1,0 +1,106 @@
+/* aashish-cooks: warm UI explainer look. Stage is 720x1280 CSS px; the renderer scales it to the output size. */
+@font-face { font-family: 'Newsreader'; src: url('../fonts/Newsreader.ttf'); font-style: normal; font-weight: 200 800; }
+@font-face { font-family: 'Newsreader'; src: url('../fonts/Newsreader-Italic.ttf'); font-style: italic; font-weight: 200 800; }
+@font-face { font-family: 'DM Sans'; src: url('../fonts/DMSans.ttf'); font-weight: 100 1000; }
+@font-face { font-family: 'DM Mono'; src: url('../fonts/DMMono-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'DM Mono'; src: url('../fonts/DMMono-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Caveat'; src: url('../fonts/Caveat.ttf'); font-weight: 400 700; }
+@font-face { font-family: 'Caveat Brush'; src: url('../fonts/CaveatBrush-Regular.ttf'); }
+@font-face { font-family: 'Instrument Serif'; src: url('../fonts/InstrumentSerif-Regular.ttf'); }
+@font-face { font-family: 'Tiro Devanagari Marathi'; src: url('../fonts/TiroDevanagariMarathi-Regular.ttf'); font-style: normal; }
+@font-face { font-family: 'Tiro Devanagari Marathi'; src: url('../fonts/TiroDevanagariMarathi-Italic.ttf'); font-style: italic; }
+@font-face { font-family: 'Mukta'; src: url('../fonts/Mukta-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Mukta'; src: url('../fonts/Mukta-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Mukta'; src: url('../fonts/Mukta-SemiBold.ttf'); font-weight: 600 800; }
+@font-face { font-family: 'Kalam'; src: url('../fonts/Kalam-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kalam'; src: url('../fonts/Kalam-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Archivo Black'; src: url('../fonts/ArchivoBlack-Regular.ttf'); }
+
+:root {
+  --paper: #F2F0E3; --ivory: #FDFDF3; --ivory2: #FFF9F2; --hair: #DDDBCE; --track: #D5D3C6;
+  --ink: #0A0705; --body: #3F3726; --muted: #8A8070;
+  --accent: #D30135; --terra: #CC6350; --brick: #95493F; --blush: #F7DED4; --chip: #ECE8DA;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 720px; height: 1280px; overflow: hidden; background: #000; }
+body { font-family: 'DM Sans', 'Mukta', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; inset: 0; width: 720px; height: 1280px; overflow: hidden; }
+#frame { position: absolute; left: 0; top: 0; width: 720px; height: 1280px; object-fit: cover; transform-origin: 50% 0; }
+.abs { position: absolute; }
+.serif { font-family: 'Newsreader', 'Tiro Devanagari Marathi', serif; }
+.sans { font-family: 'DM Sans', 'Mukta', sans-serif; }
+.mono { font-family: 'DM Mono', 'Mukta', monospace; }
+.caps { font: 600 11px 'DM Sans', 'Mukta'; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.brick { color: var(--brick); }
+.hide { opacity: 0; }
+
+/* hook title */
+.hook { position: absolute; left: 0; right: 0; top: 140px; display: flex; flex-direction: column; align-items: center; }
+.hook span { display: block; background: #000; color: #FAFAFA; font: 400 50px/1.05 'Instrument Serif', 'Tiro Devanagari Marathi', serif; letter-spacing: -.01em;
+  padding: 10px 22px 12px; border-radius: 14px; margin-top: -2px; white-space: nowrap; }
+
+/* card */
+#cardbg { position: absolute; background: rgba(246, 241, 227, .86); backdrop-filter: blur(22px) saturate(1.08); -webkit-backdrop-filter: blur(22px) saturate(1.08);
+  box-shadow: 0 14px 44px rgba(50, 32, 14, .22), inset 0 1px 0 rgba(255,255,255,.7); overflow: hidden; }
+#cardbg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.38), rgba(255,255,255,0) 45%); }
+#clip { position: absolute; inset: 0; }
+#hdr { position: absolute; left: 66px; right: 66px; top: 148px; font-family: 'DM Sans', 'Mukta', sans-serif; height: 46px; display: flex; align-items: center; gap: 9px; font: 600 17px 'DM Sans'; }
+#hdr .icons { display: flex; gap: 8px; align-items: center; }
+#hdr .icons img, #hdr .icons svg { height: 20px; width: auto; display: block; }
+#hdr .title { flex: 1; }
+#status { position: absolute; right: 66px; top: 158px; font-family: 'DM Mono', 'Mukta'; height: 26px; padding: 0 12px 0 10px; border-radius: 13px; background: var(--blush);
+  display: flex; align-items: center; gap: 7px; font: 400 14px 'DM Mono'; color: var(--brick); white-space: nowrap; }
+#status i { width: 7px; height: 7px; border-radius: 50%; background: #C9776A; display: block; }
+#divider { position: absolute; left: 0; width: 720px; top: 194px; height: 1px; background: var(--hair); }
+#bar { position: absolute; left: 66px; width: 588px; height: 4px; }
+#bar .sg { position: absolute; top: 0; height: 4px; border-radius: 2px; background: var(--track); overflow: hidden; }
+#bar .sg b { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+#bar .dot { position: absolute; top: -4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-left: -6px; box-shadow: 0 0 0 3px rgba(211,1,53,.15); }
+#meta { position: absolute; left: 66px; right: 66px; height: 22px; display: flex; align-items: center; gap: 14px; font: 500 15px 'DM Sans'; color: #2E2C1F; }
+#meta .grow { flex: 1; }
+#meta .cc { font: 600 9px 'DM Sans'; border: 1.5px solid #2E2C1F; border-radius: 4px; padding: 2px 4px; }
+.seg { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+
+/* shared bits */
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px 0 8px; border-radius: 10px; background: var(--ivory);
+  border: 1px solid #E6E1CF; box-shadow: 0 1px 3px rgba(60,40,20,.08); font: 500 15px 'DM Sans', 'Mukta'; color: var(--ink); white-space: nowrap; }
+.pill { display: inline-flex; align-items: center; height: 26px; padding: 0 11px; border-radius: 13px; background: var(--chip); font: 500 13px 'DM Sans'; color: var(--body); white-space: nowrap; }
+.pill.blush { background: var(--blush); color: var(--brick); }
+.panel { background: var(--ivory); border: 1px solid #E8E3D2; border-radius: 16px; box-shadow: 0 6px 18px rgba(60,40,20,.10); }
+.caret { display: inline-block; width: 2px; height: 1em; background: currentColor; vertical-align: -0.12em; margin-left: 2px; }
+.badge { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(211,1,53,.35); }
+.mono-logo { display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Newsreader'; font-weight: 600; border-radius: 22%; }
+
+/* person cutout (drawn over rise cards) and hairline figures */
+#person { position: absolute; left: 0; top: 0; width: 720px; height: 1280px; display: none; background-size: 720px 1280px; transform-origin: 50% 0;
+  -webkit-mask-size: 720px 1280px; mask-size: 720px 1280px; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  filter: drop-shadow(0 10px 16px rgba(40,25,10,.38)); }
+#figs { position: absolute; inset: 0; pointer-events: none; }
+#fxback, #fxfront { position: absolute; left: 0; top: 0; width: 720px; height: 1280px; pointer-events: none; overflow: hidden; }
+#fxback { transform-origin: 0 0; }
+.fxl { position: absolute; left: 0; top: 0; width: 720px; height: 1280px; }
+.fxcopy { position: absolute; left: 0; top: 0; width: 720px; height: 1280px; object-fit: cover; transform-origin: 0 0; }
+.figwrap { position: absolute; }
+.figlabel { position: absolute; left: 0; right: 0; text-align: center; font-size: 26px; font-style: italic; }
+.fig { position: absolute; }
+.fig svg *, [data-hairline] svg * { transition: none !important; }
+
+/* captions */
+.cap { position: absolute; left: 50%; bottom: 192px; transform: translateX(-50%); padding: 10px 26px 12px; border-radius: 18px;
+  background: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.65); box-shadow: 0 6px 20px rgba(30,20,10,.18);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); white-space: nowrap;
+  font: 700 39px/1.12 'Kalam', 'Caveat', cursive; color: var(--ink); display: none; }
+.cap.paper { background: rgba(250,249,244,.97); box-shadow: 0 4px 18px rgba(60,40,20,.10); backdrop-filter: none; }
+.cap.tight { font-size: 32px; padding: 6px 18px 8px; }
+.cap.tight .w.em { font-size: 36px; }
+.caveat .cap { font: 600 36px/1.1 'Caveat', 'Kalam', cursive; }
+.caveat .cap .w.em { font: 400 40px/1.1 'Caveat Brush', 'Kalam', cursive; }
+.cap .w { position: relative; display: inline-block; margin: 0 .13em; }
+.cap .w.em { font: 700 44px/1.12 'Kalam', 'Caveat', cursive; color: #000; }
+.hand .cap { font: 400 40px/1.15 'Author Handwriting', 'Kalam', 'Caveat', cursive; -webkit-text-stroke: .9px currentColor; padding: 10px 28px 13px; }
+.hand .cap .w.em { font: 400 45px/1.15 'Author Handwriting', 'Kalam', 'Caveat', cursive; -webkit-text-stroke: 1.4px currentColor; }
+.cap .w svg { position: absolute; left: -4%; bottom: -9px; width: 108%; height: 14px; overflow: visible; }
+
+#mascot { position: absolute; left: 0; top: 0; pointer-events: none; }
+#mascot img, #mascot svg { width: 100%; height: 100%; display: block; image-rendering: pixelated; }

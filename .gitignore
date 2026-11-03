@@ -1,0 +1,23 @@
+# set up on first run
+.venv/
+bin/
+__pycache__/
+*.pyc
+
+# your own media and edits
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.m4v
+*_cook.json
+*.words.json
+!examples/*_cook.json
+!examples/*.words.json
+check*.png
+logos/
+
+# system
+.DS_Store
+*.zip
+*.skill

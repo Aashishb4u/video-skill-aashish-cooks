@@ -1,0 +1,308 @@
+{
+ "_about": "Sound catalog for aashish-cooks. gain is dB added to the file. role says when it plays. Meme sounds are cleared for use (the owner has permission), client reels included; at most sfx.meme_max per reel (default 4). peak = seconds into the file where a riser hits its top (it is placed so the peak lands on the cue).",
+ "sounds": {
+  "woosh": {
+   "file": "woosh.mp3",
+   "role": "move",
+   "gain": -1
+  },
+  "pop": {
+   "file": "pop_7e9Is8L.mp3",
+   "role": "pop",
+   "gain": -5
+  },
+  "typing": {
+   "file": "whatsapp-typing.mp3",
+   "role": "type",
+   "gain": 2,
+   "loop": true
+  },
+  "cooking": {
+   "file": "text-scroll.mp3",
+   "role": "cook",
+   "gain": 1,
+   "loop": true
+  },
+  "click": {
+   "file": "meme-click.aiff",
+   "role": "tick",
+   "gain": 0
+  },
+  "ding": {
+   "file": "ding-sound-effect_1.mp3",
+   "role": "done",
+   "gain": -4,
+   "max": 1.6
+  },
+  "notification": {
+   "file": "notification_o14egLP.mp3",
+   "role": "notify",
+   "gain": -7,
+   "max": 1.4
+  },
+  "cash": {
+   "file": "cash-register-sound-fx.mp3",
+   "role": "money",
+   "gain": -2
+  },
+  "error": {
+   "file": "error_CDOxCYm.mp3",
+   "role": "warn",
+   "gain": -12
+  },
+  "magic": {
+   "file": "magic-fairy.mp3",
+   "role": "wow",
+   "gain": -5
+  },
+  "wooow": {
+   "file": "wooow.mp3",
+   "role": "wow",
+   "gain": -10
+  },
+  "riser": {
+   "file": "Riser.wav",
+   "role": "curiosity",
+   "gain": -6,
+   "peak": 3.0
+  },
+  "riser-metal": {
+   "file": "popular-riser-metallic-sound-effect.mp3",
+   "role": "curiosity",
+   "gain": -8,
+   "peak": "auto"
+  },
+  "build-up": {
+   "file": "build-up_curiosity.mp3",
+   "role": "curiosity",
+   "gain": 2,
+   "peak": "auto"
+  },
+  "surprise": {
+   "file": "surprise-shitpost-botom.mp3",
+   "role": "reveal",
+   "gain": -12
+  },
+  "funny-reveal": {
+   "file": "arkh_surprise.mp3",
+   "role": "funny-reveal",
+   "gain": -12,
+   "meme": true
+  },
+  "yooo": {
+   "file": "yooooooooooooooooooooooooo_4_objp8XX.mp3",
+   "role": "funny-reveal",
+   "gain": -10,
+   "meme": true
+  },
+  "punch": {
+   "file": "punch_u4LmMsr.mp3",
+   "role": "meme",
+   "gain": -12,
+   "meme": true
+  },
+  "are-bapre": {
+   "file": "are_bapre_funny.mp3",
+   "role": "meme",
+   "gain": -8,
+   "meme": true
+  },
+  "ayeee": {
+   "file": "ayeee_funny.mp3",
+   "role": "meme",
+   "gain": -6,
+   "meme": true
+  },
+  "faaah": {
+   "file": "faaah.mp3",
+   "role": "shock",
+   "gain": -8
+  },
+  "quack": {
+   "file": "mac-quack.mp3",
+   "role": "meme",
+   "gain": -8,
+   "meme": true
+  },
+  "oof": {
+   "file": "roblox-death-sound_1.mp3",
+   "role": "meme",
+   "gain": -4,
+   "meme": true
+  },
+  "caw": {
+   "file": "raven-caw-caw.mp3",
+   "role": "meme",
+   "gain": -12,
+   "meme": true
+  },
+  "click-soft": {
+   "file": "mouse-click-153941.mp3",
+   "role": "tick",
+   "gain": -6
+  },
+  "meme-sting": {
+   "file": "y2mate_S1LPbpU.mp3",
+   "role": "meme",
+   "gain": -6,
+   "meme": true,
+   "note": "2.8 s meme clip from the owner's pack (unnamed): use on a funny beat"
+  }
+ },
+ "auto": {
+  "card-in": [
+   [
+    "woosh",
+    -0.03
+   ],
+   [
+    "pop",
+    0.3
+   ]
+  ],
+  "rise-card": [
+   [
+    "woosh",
+    0.0
+   ],
+   [
+    "pop",
+    0.45
+   ]
+  ],
+  "card-out": [
+   [
+    "woosh",
+    0.0,
+    -4
+   ]
+  ],
+  "boom-card": [
+   [
+    "woosh",
+    0.02
+   ]
+  ],
+  "boom-back": [
+   [
+    "pop",
+    0.4
+   ]
+  ],
+  "card-swap": [
+   [
+    "click",
+    0.05,
+    -6
+   ]
+  ],
+  "figure-in": [
+   [
+    "pop",
+    0.15,
+    -3
+   ]
+  ],
+  "type": "typing",
+  "cook": "cooking",
+  "tick": "click",
+  "tick-last": "ding",
+  "notify": "notification",
+  "money": "cash",
+  "pop": [
+   [
+    "pop",
+    0.0,
+    -3
+   ]
+  ],
+  "woosh": [
+   [
+    "woosh",
+    0.0,
+    -2
+   ]
+  ],
+  "stamp": "punch",
+  "glitch": "error"
+ },
+ "moments": {
+  "_about": "Sound moments learned from Aashish's edits. The planner finds these in the transcript and adds {\"fx\":\"sfx\"} effects; they are not automatic.",
+  "shock hook line": {
+   "sound": "surprise",
+   "at": "the last words of the line",
+   "example": "0:02 'Pichhle 24 ghanton ne poori duniya ko hila ke rakh diya hai' -> surprise on 'diya hai'",
+   "why": "the world just got turned upside down"
+  },
+  "shocking fact": {
+   "sound": "faaah",
+   "at": "the end of the fact",
+   "example": "0:08 'jisne PHP mein critical bugs ... kiye' -> faaah on 'kiye'",
+   "why": "something unexpected happened"
+  },
+  "money talk": {
+   "sound": "cash",
+   "at": "the end of the money phrase",
+   "example": "0:12 'tumhare liye ek earning opportunity bhi ho sakti hai' -> cash on 'sakti hai'",
+   "why": "the line is about money (earning, reward, dollar, paisa, kamao, price, free)"
+  },
+  "a task being done": {
+   "sound": "cooking",
+   "dur": "the whole stretch",
+   "example": "0:13-0:18 'companies ... vulnerability discover ... ethical hackers ... bug bounty' -> cooking bed for 5 s",
+   "why": "someone is working: finding, scanning, researching, building, analysing"
+  },
+  "any click": {
+   "sound": "click",
+   "why": "meme-click is the house click"
+  },
+  "hard hit / slam": {
+   "sound": "punch",
+   "at": "the hit word",
+   "why": "a stamp, a slam, a knockout fact, 'khatam'",
+   "meme": true
+  },
+  "unbelievable number": {
+   "sound": "are-bapre",
+   "at": "right after the number",
+   "why": "a stat so big it's funny ('10 lakh', '1000x')",
+   "meme": true
+  },
+  "win / excited": {
+   "sound": "ayeee",
+   "at": "the end of the win line",
+   "why": "got paid, it worked, it's free",
+   "meme": true
+  },
+  "silly mistake": {
+   "sound": "quack",
+   "at": "the end of the mistake",
+   "why": "a dumb error, a typo, 'galti se'",
+   "meme": true
+  },
+  "fail / it breaks": {
+   "sound": "oof",
+   "at": "the moment it fails",
+   "why": "crash, bug, rejected, lost money",
+   "meme": true
+  },
+  "awkward / cringe": {
+   "sound": "caw",
+   "at": "after the awkward line, in the silence",
+   "why": "cringe, nobody replied, awkward pause",
+   "meme": true
+  },
+  "funny reveal": {
+   "sound": "funny-reveal or yooo",
+   "at": "the reveal word",
+   "why": "a funny twist; yooo for hype, funny-reveal (arkh) for a silly twist",
+   "meme": true
+  },
+  "other funny beat": {
+   "sound": "meme-sting",
+   "at": "the end of the funny line",
+   "why": "a joke that needs a button",
+   "meme": true
+  }
+ }
+}

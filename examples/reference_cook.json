@@ -1,0 +1,84 @@
+{
+ "title": "YouTube Agent Skill",
+ "captions": {
+  "words": "reference.words.json",
+  "emphasis": "free|agent"
+ },
+ "effects": [
+  {
+   "fx": "hook-title",
+   "start": 0,
+   "end": 3,
+   "text": "Automate Your Complete|Youtube Channel"
+  },
+  {
+   "fx": "card-in",
+   "at": 3.0,
+   "show": "repo-card",
+   "name": "youtube-agent-skill",
+   "chapter": "Intro"
+  },
+  {
+   "fx": "boom-card",
+   "at": 4.7,
+   "show": "connect",
+   "a": "Claude",
+   "b": "YouTube",
+   "chapter": "Connect"
+  },
+  {
+   "fx": "card-swap",
+   "at": 6.8,
+   "show": "orbit-ring",
+   "toggle_at": 8.5
+  },
+  {
+   "fx": "boom-card-back",
+   "at": 9.1,
+   "show": "counter-grid",
+   "path": "skills/youtube-agent-skill",
+   "title": "YouTube Agent Skill",
+   "status": "11 skills",
+   "ticks": "11.3|11.4|11.5|11.6|11.7|11.8|11.9|12.0|12.1|12.2|12.3"
+  },
+  {
+   "fx": "card-swap",
+   "at": 12.7,
+   "show": "chat-install",
+   "link": "github.com/···/youtube-agent-skill",
+   "done": "11 skills installed. Try /yt-script",
+   "link_at": 13.2,
+   "type_at": 13.7,
+   "send_at": 14.6,
+   "done_at": 15.6
+  },
+  {
+   "fx": "card-swap",
+   "at": 16.2,
+   "show": "dm-cta",
+   "link_title": "youtube-agent-skill",
+   "chapter": "DM"
+  },
+  {
+   "fx": "card-out",
+   "at": 18.6
+  },
+  {
+   "fx": "card-in",
+   "at": 19.4,
+   "style": "pill",
+   "show": "headline",
+   "text": "Your whole channel,",
+   "accent": "on autopilot.",
+   "status": "wrap"
+  },
+  {
+   "fx": "boom-card",
+   "at": 20.6
+  },
+  {
+   "fx": "boom-card-back",
+   "at": 22.0
+  }
+ ]
+}
