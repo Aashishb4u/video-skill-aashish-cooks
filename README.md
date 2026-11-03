@@ -4,20 +4,6 @@ Turn one vertical talking video into an animated explainer reel. A product card 
 
 **Install:** copy this folder to `~/.claude/skills/aashish-cooks`, restart Claude, drop in your video and type `/aashish-cooks auto`. The first run sets itself up (2 to 4 minutes).
 
-## What you get
-
-Everything below was rendered by the skill on one real clip. Ask for any of it by name.
-
-### The cooks style: moves, cards, figures and captions
-The card track is the heart of the look. Moves bring a card in and out (`rise-card`, `boom-card`, `card-swap`), and each card type acts out what you say: `at 4.6s card-swap with repo-card "my-skill", free`.
-
-![Cooks moves, the 11 card types, hairline figures and captions](assets/cooks.jpg)
-
-### The 45 screen effects
-They sit behind, around or on top of you, like `at 9s spotlight "Cooks"`.
-
-![All 45 screen effects](assets/effects.jpg)
-
 ## Write a prompt that gives the best result
 
 ### 1. Start with auto, then refine
@@ -78,6 +64,9 @@ Ask Claude to show check frames at the middle of each card and after each boom. 
 ## Shoot for a better edit
 - Film vertical (9:16), with about 220 pixels of empty wall above your head. The `rise-card` needs it.
 - Speak in short beats of one idea each (1.5 to 4 seconds). Each beat gets its own card.
+
+## Figures drawn for your script
+Figures always sit in the card. Besides hairline's 33, the skill draws its own: ask for "a figure of Twitter", "an AI agent" or "a Claude bot" and, if `figures/` has none, Claude draws one for that beat, checks it and keeps it for later reels. It starts with `social-feed` (Twitter / X), `ai-agent` and `chatbot`. How they are made: `references/figure-maker.md`.
 
 ## Add your own sounds and mascot
 - **Sounds:** drop files into `sfx/custom/`. `boing.mp3` is ready as `boing`: say "put boing at 4.2s". See `sfx/custom/README.md`.

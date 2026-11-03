@@ -36,7 +36,8 @@ Prompts look like:
 - **Timed steps**: map each to a move or effect in `references/plan-format.md`, or to one of the 45 screen effects in `references/screen-effects.md`. "When I say X" means the start time of that word in the `.words.json`.
 - **A move without content** ("at 2s show boom-card"): if no card is on screen yet, add a `card-in` about 1.5 s earlier with content that fits what is being said at that point, then the boom. Tell them in one line.
 - **An effect not built yet** (the plan-format list says which): say so and offer the closest effect.
-- **Animated icons or illustrations**: use hairline figures (`illustrate`, `"show": "figure"`). There are no Lottie files.
+- **Animated icons or illustrations**: use line figures, always inside the card (`"show": "figure"`). Use `illustrate` (no card) only if the user asks. There are no Lottie files.
+- **A figure the library does not have** ("show Twitter", "an AI agent", "a Claude bot"): draw it. Follow `references/figure-maker.md`: plan it in one sentence, write `figures/<name>.js`, check frames, keep it. The reels are mostly AI and tech, so expect to draw new tech figures often.
 
 ## 4. Ask about the voice
 Before rendering, ask once: "Shall I clean the voice too (remove background noise, light polish)?" If yes, add `"voice": {"clean": true}` to the plan (`"strength": "strong"` for noisy places like roads or fans, `"light"` for quiet rooms). The cleaner (DeepFilterNet) downloads once on first use.
@@ -70,4 +71,4 @@ Sounds live in `sfx/` and are described in `sfx/sfx.json` (role, volume, meme or
 - Captions keep the speaker's exact words. Do not translate or clean up their Hinglish.
 - Captions end 15% above the bottom (Instagram's name and caption area) and never cover the face.
 - A rise-card never covers the face: it only fills the space above the head. If `analyze.py` says there is under 220px, use another move.
-- Figures (`illustrate`, `"show": "figure"`) explain an idea; pick the figure from the topic table and put its `moves` on the spoken words.
+- Figures explain an idea and always sit in the card (`"show": "figure"`). Choose or draw the figure for what is being said, and put its `moves` on the spoken words.

@@ -9,7 +9,7 @@ Each part keeps its own licence. The skill's own code is MIT (see `LICENSE`).
 | Part | Author | Licence | Where |
 |---|---|---|---|
 | claude-video-effects: the 45 screen effects were rebuilt from it in the cooks style; parts of `scripts/setup.sh` and `scripts/words.py` are adapted from it | Vibha Ramprakash | MIT | https://github.com/Vibha-Ramprakash/claude-video-effects |
-| hairline: the animated line figures (`engine/hairline.js`) | Lucas Marques | MIT, see `engine/LICENSE-hairline.txt` | https://www.npmjs.com/package/@lucasmarkes/hairline |
+| hairline: the 33 animated line figures (`engine/hairline.js`), and the projection and plate math adapted in `engine/cooks-figures.js` for our own figures in `figures/` | Lucas Marques | MIT, see `engine/LICENSE-hairline.txt` | https://www.npmjs.com/package/@lucasmarkes/hairline |
 | Lucide icons (`engine/lucide.js`) | Lucide contributors | ISC, see `engine/LICENSE-lucide.txt` | https://lucide.dev |
 
 ## Models

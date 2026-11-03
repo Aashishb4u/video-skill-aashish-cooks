@@ -25,7 +25,8 @@
 Fill every text option from the speaker's own words and topic. Leave nothing generic: the title is their product name and the chips are their real features.
 
 ## 3b. Figures and sounds
-- For AI or tech talk, give 2–4 beats a hairline figure (table in `plan-format.md`), in a card (`"show": "figure"`) or alone (`illustrate`). Put its `moves` on the words that matter (keys sink on "type", the padlock opens on "secure").
+- The reels are mostly AI and tech. Give 2–4 beats a line figure, **always inside the card** (`"show": "figure"`, with `title`, `text`, `label`). Use a floating `illustrate` only when the user asks for it.
+- Pick the figure from what the beat is about, not from a fixed list. Check `figures/` (our own) and the hairline table in `plan-format.md`. If none shows the idea (Twitter, an AI agent, a chatbot, a GPU, an API call...), draw a new one by following `references/figure-maker.md`, check it in a frame, and keep it in `figures/`. Put its `moves` on the words that matter (keys sink on "type", the padlock opens on "secure").
 - Sounds come automatically with moves and card content. Then read the transcript for the **sound moments** in `plan-format.md` and add them as `sfx` effects:
   - the hook's shock line gets `surprise` on its last words;
   - each shocking fact gets `faaah` at its end;

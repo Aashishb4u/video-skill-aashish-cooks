@@ -115,7 +115,18 @@ def extract_frames(video, outdir, W, H, fps, times=None):
     return sorted(outdir.glob('f_*.jpg'))
 
 
-async def render(data, jobs, scale, workers):
+def figure_files(plan_dir):
+    """Line figures to load: the skill's own figures/ library, then a figures/ folder next to the plan
+    (same name wins later, so a plan can override a built-in figure)."""
+    files = {}
+    for d in (ROOT / 'figures', plan_dir / 'figures'):
+        if d.is_dir():
+            for f in sorted(d.glob('*.js')):
+                files[f.name] = f
+    return list(files.values())
+
+
+async def render(data, jobs, scale, workers, figs=()):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         browser = await p.chromium.launch(args=['--allow-file-access-from-files', '--disable-web-security'])
@@ -123,6 +134,8 @@ async def render(data, jobs, scale, workers):
         for _ in range(max(1, min(workers, len(jobs)))):
             pg = await browser.new_page(viewport={'width': 720, 'height': 1280}, device_scale_factor=scale)
             await pg.goto((ROOT / 'engine' / 'index.html').as_uri())
+            for f in figs:
+                await pg.add_script_tag(path=str(f))
             w = await pg.evaluate('d => COOK.load(d)', data)
             if warnings is None:
                 warnings = w; cues = await pg.evaluate('COOK.cues')
@@ -201,7 +214,7 @@ def main():
             masks, mw = TRACK.person_masks(srcs, times, windows, tmp / 'masks', video_mode=False) if windows else ({}, None)
             if mw: print('WARNING:', mw)
             jobs = [(t, s.as_uri(), masks.get(i), out.with_name(f'{out.stem}_{t:g}.jpg')) for i, (t, s) in enumerate(zip(times, srcs))]
-            asyncio.run(render(data, jobs, scale, a.workers))
+            asyncio.run(render(data, jobs, scale, a.workers, figure_files(plan_path.parent)))
             for _, _, _, o in jobs:
                 print('check frame:', o)
             return
@@ -216,7 +229,7 @@ def main():
             if mw: print('WARNING:', mw)
         jobs = [(times[i], s.as_uri(), masks.get(i), od / f'o_{i:05d}.jpg') for i, s in enumerate(srcs)]
         print(f'Rendering {len(jobs)} frames...', flush=True)
-        _, cues = asyncio.run(render(data, jobs, scale, a.workers))
+        _, cues = asyncio.run(render(data, jobs, scale, a.workers, figure_files(plan_path.parent)))
         audio, voice = None, None
         vcfg = plan.get('voice') if isinstance(plan.get('voice'), dict) else ({'clean': True} if plan.get('voice') is True else {})
         if has_audio and (a.clean_voice or vcfg.get('clean')):

@@ -111,8 +111,18 @@ Screen effects add their own: `pop` (tiles, widgets), `woosh` (camera moves, wor
 
 Rules the mixer keeps: one-shots at least 0.18 s apart, a riser is dropped if it would run into a shock or reveal sound, the voice is never lowered or covered, the final mix is levelled to −14 LUFS.
 
-## Figures (hairline)
-33 isometric line figures from `@lucasmarkes/hairline` (MIT), drawn in the cooks palette and moved by a scripted pointer, frame-exact. Use them in a card with `"show": "figure"` or alone with `illustrate`.
+## Figures
+Line figures, frame-exact and moved by a scripted pointer, in the cooks palette. Put them **in the card** with `"show": "figure"` (`illustrate` floats one with no card; only when asked).
+
+**Our own figures** live in `figures/`, one file each, and the library grows: draw a new one when a beat needs it (`references/figure-maker.md`). A `figures/` folder next to the plan adds figures for that reel only.
+
+| Topic | Figure (aliases) |
+|---|---|
+| Twitter / X, posting, a social feed, going viral | `social-feed` (`twitter`, `x`, `tweet`, `threads`) |
+| AI agents, tool use, automation, MCP | `ai-agent` (`agent`, `tool-use`) |
+| a chatbot, an AI assistant, "ask Claude" | `chatbot` (`claude-bot`, `ai-bot`, `assistant`) |
+
+**Hairline's 33** isometric figures from `@lucasmarkes/hairline` (MIT):
 
 | Topic | Figure |
 |---|---|
