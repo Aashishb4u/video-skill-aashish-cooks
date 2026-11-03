@@ -4,6 +4,12 @@ Turn one vertical talking video into an animated explainer reel. A product card 
 
 **Install:** copy this folder to `~/.claude/skills/aashish-cooks`, restart Claude, drop in your video and type `/aashish-cooks auto`. The first run sets itself up (2 to 4 minutes).
 
+## What you get
+
+Every screen effect, rendered by the skill on one real clip. Ask for any of them by name, like `at 9s spotlight "Cooks"`.
+
+![All 45 screen effects](assets/effects.jpg)
+
 ## Write a prompt that gives the best result
 
 ### 1. Start with auto, then refine

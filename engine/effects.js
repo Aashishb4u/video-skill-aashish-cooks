@@ -427,7 +427,10 @@ VFX['profile-wall'] = { mask: true, dur: 4, build(x, o) {
     const t0 = x.s + i * Math.min(.18, (x.e - x.s - 1) / n); tl.style.opacity = 0; x.tick(t => { const p = prog(t, t0, .3, 'quint'); tl.style.opacity = Math.min(p, 1 - prog(t, x.e, .3)); tl.style.transform = `scale(${lerp(.7, 1, p)})`; }); x.cue('pop', t0); }
   const z = x.zone(), c = box(x.front, 'panel', 470, z.top, 210, 110, 'border-radius:20px;padding:12px 18px');
   const num = el('div', 'serif', c); num.style.cssText = 'font-size:52px;line-height:1;color:var(--terra)'; el('div', 'caps', c, esc(o.label || 'reels posted'));
-  x.count(num, 0, +(o.total ?? n * 10), x.s + .2, x.e - x.s - .6); x.show(c, x.s + .1); x.hideAt(c, x.e);
+  // total can be 120, "1,200", "1.2M" or "₹50K": count the number, keep the prefix and suffix
+  const raw = String(o.total ?? n * 10), commas = raw.includes(','), m = raw.replace(/,/g, '').match(/^([^\d-]*)([\d.]+)(.*)$/) || ['', '', '0', ''];
+  const dec = (m[2].split('.')[1] || '').length, fmt = v => m[1] + (commas ? Math.round(v).toLocaleString('en-US') : v.toFixed(dec)) + m[3];
+  x.count(num, 0, +m[2], x.s + .2, x.e - x.s - .6, fmt); x.show(c, x.s + .1); x.hideAt(c, x.e);
 } };
 
 // 31 tier-list: a tier list drops in and your item flies into S tier
