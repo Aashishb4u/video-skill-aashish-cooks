@@ -172,7 +172,7 @@ def main():
     ap.add_argument('--workers', type=int, default=4)
     ap.add_argument('--words')
     ap.add_argument('--no-sfx', action='store_true')
-    ap.add_argument('--clean-voice', nargs='?', const='medium', choices=['light', 'medium', 'strong'])
+    ap.add_argument('--clean-voice', nargs='?', const='strong', choices=['light', 'medium', 'strong'])
     a = ap.parse_args()
 
     video = pathlib.Path(a.video).expanduser().resolve()
@@ -231,10 +231,11 @@ def main():
         print(f'Rendering {len(jobs)} frames...', flush=True)
         _, cues = asyncio.run(render(data, jobs, scale, a.workers, figure_files(plan_path.parent)))
         audio, voice = None, None
-        vcfg = plan.get('voice') if isinstance(plan.get('voice'), dict) else ({'clean': True} if plan.get('voice') is True else {})
-        if has_audio and (a.clean_voice or vcfg.get('clean')):
-            print('Cleaning the voice (background noise out, light polish)...', flush=True)
-            voice = VOICE.clean(video, tmp / 'voice.wav', a.clean_voice or vcfg.get('strength', 'medium'), vcfg.get('polish', True))
+        # studio voice is on by default; only "voice": false (or {"clean": false}) turns it off
+        vcfg = plan.get('voice') if isinstance(plan.get('voice'), dict) else ({'clean': False} if plan.get('voice') is False else {})
+        if has_audio and (a.clean_voice or vcfg.get('clean', True)):
+            print('Studio voice (echo out, noise out, warm polish)...', flush=True)
+            voice = VOICE.clean(video, tmp / 'voice.wav', a.clean_voice or vcfg.get('strength', 'strong'), vcfg.get('polish', True), vcfg.get('echo', True))
         cat = None if a.no_sfx else SFX.load_all(ROOT / 'sfx', plan_path.parent / 'sfx')
         if cat:
             sounds, sw = SFX.plan_sounds(cues or [], plan, cat, dur)

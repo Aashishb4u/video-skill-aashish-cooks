@@ -24,7 +24,7 @@ def vcodec(path):
                            '-of', 'csv=p=0', str(path)], capture_output=True, text=True).stdout.strip()
 
 
-def fix(video, out, strength='medium', polish=True):
+def fix(video, out, strength='strong', polish=True):
     video, out = pathlib.Path(video), pathlib.Path(out)
     if not has_audio(video):
         raise SystemExit('NO_AUDIO: this video has no sound track to fix.')
@@ -53,7 +53,7 @@ def fix(video, out, strength='medium', polish=True):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('video'); ap.add_argument('out', nargs='?')
-    ap.add_argument('--strength', default='medium', choices=list(VOICE.ATTEN))
+    ap.add_argument('--strength', default='strong', choices=list(VOICE.ATTEN))
     ap.add_argument('--no-polish', action='store_true')
     a = ap.parse_args()
     v = pathlib.Path(a.video)

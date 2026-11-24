@@ -4,3 +4,5 @@ numpy
 pillow
 faster-whisper
 mediapipe
+nara_wpe
+soundfile
